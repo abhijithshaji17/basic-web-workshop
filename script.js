@@ -1,6 +1,8 @@
 const btn = document.querySelector("#btn");
+
 btn.addEventListener("click", () => {
-    window.alert("Thank you for your interest, will get back to you soon!");
+    window.alert(
+        "Thank you for your interest, will get back to you soon!");
 });
 
 const cursor = document.querySelector(".custom-cursor");
@@ -8,8 +10,8 @@ const cursorText = document.querySelector(".cursor-text");
 
 // Move the cursor
 document.addEventListener("mousemove", (e) => {
-    cursor.style.top = e.pageY + "px";
-    cursor.style.left = e.pageX + "px";
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
 });
 
 // Grow on links
@@ -23,12 +25,12 @@ document.querySelectorAll("a").forEach((link) => {
 });
 
 // Show "View Image" on images
-document.querySelectorAll("img").forEach((image) => {
-    image.addEventListener("mouseenter", () => {   
+document.querySelectorAll("img").forEach((img) => {
+    img.addEventListener("mouseenter", () => {   
         cursor.classList.add("image-hover");
         cursorText.textContent = "View";
     });
-    image.addEventListener("mouseleave", () => {
+    img.addEventListener("mouseleave", () => {
         cursor.classList.remove("image-hover");
         cursorText.textContent = "";
     });
