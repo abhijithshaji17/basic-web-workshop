@@ -1,0 +1,35 @@
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", () => {
+    window.alert("Thank you for your interest, will get back to you soon!");
+});
+
+const cursor = document.querySelector(".custom-cursor");
+const cursorText = document.querySelector(".cursor-text");
+
+// Move the cursor
+document.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+});
+
+// Grow on links
+document.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+        cursor.classList.add("grow");
+    }); 
+    link.addEventListener("mouseleave", () => {
+        cursor.classList.remove("grow");
+    });
+});
+
+// Show "View Image" on images
+document.querySelectorAll("img").forEach((image) => {
+    image.addEventListener("mouseenter", () => {   
+        cursor.classList.add("image-hover");
+        cursorText.textContent = "View";
+    });
+    image.addEventListener("mouseleave", () => {
+        cursor.classList.remove("image-hover");
+        cursorText.textContent = "";
+    });
+});
